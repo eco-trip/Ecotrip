@@ -1,0 +1,39 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".."
+    },
+    {
+      "name": "Api",
+      "path": "../Api"
+    },
+    {
+      "name": "CP",
+      "path": "../CP"
+    },
+    {
+      "name": "App",
+      "path": "../App"
+    },
+  ],
+  "settings": {
+    "eslint.workingDirectories": ["./Api", "./CP", "./App"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false,
+    "files.exclude": {
+      "Api/": true,
+      "CP/": true,
+      "App/": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "raynigon.nginx-formatter"
+    ]
+  }
+}
