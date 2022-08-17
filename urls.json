@@ -1,0 +1,17 @@
+{
+  "app": {
+    "dev": "localhost",
+    "staging": "staging.ecotrip.meblabs.com",
+    "production": "ecotrip.meblabs.com"
+  },
+  "cp": {
+    "dev": "localhost:3000",
+    "staging": "cp.staging.ecotrip.meblabs.com",
+    "production": "cp.ecotrip.meblabs.com"
+  },
+  "api": {
+    "dev": "localhost:5000",
+    "staging": "api.staging.ecotrip.meblabs.com",
+    "production": "api.ecotrip.meblabs.com"
+  }
+}
