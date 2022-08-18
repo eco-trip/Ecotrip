@@ -22,7 +22,7 @@ sed "s/__FontAwesomeKey__/${FontAwesomeKey}/g" ./CP/.npmrc.template >./CP/.npmrc
 sed "s/__FontAwesomeKey__/${FontAwesomeKey}/g" ./App/.npmrc.template >./App/.npmrc
 
 # NPM INSTALL
-cd ./Api
+cd ./Administration
 npm ci
 cd ../CP
 npm ci

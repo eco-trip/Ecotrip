@@ -5,8 +5,8 @@
       "path": ".."
     },
     {
-      "name": "Api",
-      "path": "../Api"
+      "name": "Administration",
+      "path": "../Administration"
     },
     {
       "name": "CP",
@@ -18,13 +18,13 @@
     }
   ],
   "settings": {
-    "eslint.workingDirectories": ["./Api", "./CP", "./App"],
+    "eslint.workingDirectories": ["./Administration", "./CP", "./App"],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": false,
     "files.exclude": {
-      "Api/": true,
+      "Administration/": true,
       "CP/": true,
       "App/": true
     },

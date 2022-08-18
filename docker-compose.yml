@@ -28,14 +28,14 @@ services:
   Administration:
     image: node:16-alpine
     container_name: ecotrip-administration
-    env_file: ./Api/.env
+    env_file: ./Administration/.env
     depends_on:
       - db
     ports:
       - "5000:3000"
       - "587:587"
     volumes:
-      - ./Api:/data
+      - ./Administration:/data
     working_dir: /data
     command: ./node_modules/.bin/nodemon
 
@@ -46,7 +46,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./Api/DB/data:/home/dynamodblocal/data
+      - ./Administration/DB/data:/home/dynamodblocal/data
 
   AdministrationDB-admin:
     image: aaronshaf/dynamodb-admin:latest

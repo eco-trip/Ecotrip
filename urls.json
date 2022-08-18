@@ -9,7 +9,7 @@
     "staging": "cp.staging.ecotrip.meblabs.com",
     "production": "cp.ecotrip.meblabs.com"
   },
-  "api": {
+  "administration": {
     "dev": "localhost:5000",
     "staging": "api.staging.ecotrip.meblabs.com",
     "production": "api.ecotrip.meblabs.com"

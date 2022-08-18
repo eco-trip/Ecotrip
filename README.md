@@ -42,5 +42,5 @@ bash setup.sh
 This script does:
 
 - retrieve secret key for FontAwesome npm packages
-- install all npm dependencies on Api, CP and App
+- install all npm dependencies on Administration, CP and App
 - optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
