@@ -1,20 +1,6 @@
 version: "3.7"
 
 services:
-  Api:
-    image: node:16-alpine
-    container_name: ecotrip-api
-    env_file: ./Api/.env
-    depends_on:
-      - db
-    ports:
-      - "5000:3000"
-      - "587:587"
-    volumes:
-      - ./Api:/data
-    working_dir: /data
-    command: ./node_modules/.bin/nodemon
-
   CP:
     image: node:16-alpine
     container_name: ecotrip-cp
@@ -38,3 +24,39 @@ services:
     working_dir: /data
     command: npm start
     stdin_open: true
+
+  Administration:
+    image: node:16-alpine
+    container_name: ecotrip-administration
+    env_file: ./Api/.env
+    depends_on:
+      - db
+    ports:
+      - "5000:3000"
+      - "587:587"
+    volumes:
+      - ./Api:/data
+    working_dir: /data
+    command: ./node_modules/.bin/nodemon
+
+  AdministrationDB:
+    image: amazon/dynamodb-local:1.19.0
+    container_name: ecotrip-administration-db
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Api/DB/data:/home/dynamodblocal/data
+
+  AdministrationDB-admin:
+    image: aaronshaf/dynamodb-admin:latest
+    container_name: ecotrip-administration-db-admin
+    depends_on:
+      - ecotrip-administration-db
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://ecotrip-administration-db:8000"
+      AWS_REGION: "eu-west-1"
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
