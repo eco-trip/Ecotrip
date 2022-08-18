@@ -1,9 +1,9 @@
 [submodule "CP"]
 	path = CP
 	url = git@github.com:eco-trip/CP.git
-[submodule "Api"]
-	path = Api
-	url = git@github.com:eco-trip/Api.git
+[submodule "Administration"]
+	path = Administration
+	url = git@github.com:eco-trip/Administration.git
 [submodule "App"]
 	path = App
 	url = git@github.com:eco-trip/App.git

@@ -1,35 +1,9 @@
 version: "3.7"
 
 services:
-  db:
-    image: mongo
-    container_name: progotan-mongo
-    env_file: ./Api/.env.development
-    restart: always
-    ports:
-      - 27017:27017
-    volumes:
-      - ./Api/db/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
-      - ./Api/db/data:/data/db
-      - ./Api/db/seed:/seed
-
-  api:
-    image: node:16-alpine
-    container_name: progotan-api
-    env_file: ./Api/.env
-    depends_on:
-      - db
-    ports:
-      - "5000:3000"
-      - "587:587"
-    volumes:
-      - ./Api:/data
-    working_dir: /data
-    command: ./node_modules/.bin/nodemon
-
   CP:
     image: node:16-alpine
-    container_name: progotan-cp
+    container_name: ecotrip-cp
     env_file: ./CP/.env
     ports:
       - "3000:3000"
@@ -38,3 +12,51 @@ services:
     working_dir: /data
     command: npm start
     stdin_open: true
+
+  App:
+    image: node:16-alpine
+    container_name: ecotrip-app
+    env_file: ./App/.env
+    ports:
+      - "80:3000"
+    volumes:
+      - ./App:/data
+    working_dir: /data
+    command: npm start
+    stdin_open: true
+
+  Administration:
+    image: node:16-alpine
+    container_name: ecotrip-administration
+    env_file: ./Administration/.env
+    depends_on:
+      - db
+    ports:
+      - "5000:3000"
+      - "587:587"
+    volumes:
+      - ./Administration:/data
+    working_dir: /data
+    command: ./node_modules/.bin/nodemon
+
+  AdministrationDB:
+    image: amazon/dynamodb-local:1.19.0
+    container_name: ecotrip-administration-db
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Administration/DB/data:/home/dynamodblocal/data
+
+  AdministrationDB-admin:
+    image: aaronshaf/dynamodb-admin:latest
+    container_name: ecotrip-administration-db-admin
+    depends_on:
+      - ecotrip-administration-db
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://ecotrip-administration-db:8000"
+      AWS_REGION: "eu-west-1"
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local

@@ -5,8 +5,8 @@
       "path": ".."
     },
     {
-      "name": "Api",
-      "path": "../Api"
+      "name": "Administration",
+      "path": "../Administration"
     },
     {
       "name": "CP",
@@ -15,25 +15,32 @@
     {
       "name": "App",
       "path": "../App"
-    },
+    }
   ],
   "settings": {
-    "eslint.workingDirectories": ["./Api", "./CP", "./App"],
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.workingDirectories": ["./Administration", "./CP", "./App"],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": false,
     "files.exclude": {
-      "Api/": true,
+      "Administration/": true,
       "CP/": true,
       "App/": true
+    },
+    "[shellscript]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dotenv]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
     }
   },
   "extensions": {
     "recommendations": [
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
-      "raynigon.nginx-formatter"
+      "raynigon.nginx-formatter",
+      "foxundermoon.shell-format"
     ]
   }
 }
