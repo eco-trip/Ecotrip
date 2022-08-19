@@ -33,14 +33,21 @@ git submodule foreach git pull
 
 ## Install
 
-First setup your environment:
+#### 1) Setup your environment:
 
 ```sh
 bash setup.sh
 ```
 
-This script does:
+- Retrieve secret key for FontAwesome npm packages
+- Install all npm dependencies on Administration, CP and App
+- Optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
 
-- retrieve secret key for FontAwesome npm packages
-- install all npm dependencies on Administration, CP and App
-- optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
+#### 2) Start local environment
+
+```sh
+bash start.sh # -d if you want docker compose like a daemon
+```
+
+- Setup your env variables
+- Start docker compose

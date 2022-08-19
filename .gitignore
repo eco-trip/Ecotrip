@@ -74,25 +74,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux
 
-# RSA key genereted to connect via ssh to ec2
-*.pem
-*.zip
-
 # Tmp env file used by scripts
-.env.tmp
-api/.env.development
-
-# Output files
-Lambdas/PdfGenerator/output.html
-Lambdas/PdfGenerator/output.pdf
-Lambdas/ExcelGenerator/output.xlsx
-
-# Python venv
-scripts/venv
-__pycache__
-
-# Node modules
-node_modules
-
-# AWS Sam
-.aws-sam
+.env.development

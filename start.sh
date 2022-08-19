@@ -1,13 +1,13 @@
 #!/bin/bash
 
 source .env
->.env.tmp
+>.env.development
 
-echo rootFolder=$(pwd) >>./.env.tmp
-source .env.tmp
-echo gitUsername=$(echo $(git config user.name) | tr '[:upper:]' '[:lower:]') >>./.env.tmp
+echo rootFolder=$(pwd) >>./.env.development
+source .env.development
+echo gitUsername=$(echo $(git config user.name) | tr '[:upper:]' '[:lower:]') >>./.env.development
 
-source .env.tmp
+source .env.development
 deamon=false
 
 while getopts ":d:a:" opt; do
@@ -25,8 +25,6 @@ done
 export AWS_PROFILE=$AWS_PROFILE
 export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
 export AWS_PAGER=""
-
-env=dev
 
 if [ $deamon == "true" ]; then
 	echo "Starting deamon mode..."

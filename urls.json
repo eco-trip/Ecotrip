@@ -11,7 +11,7 @@
   },
   "administration": {
     "dev": "localhost:5000",
-    "staging": "api.staging.ecotrip.meblabs.com",
-    "production": "api.ecotrip.meblabs.com"
+    "staging": "administration.staging.ecotrip.meblabs.com",
+    "production": "administration.ecotrip.meblabs.com"
   }
 }
