@@ -16,8 +16,11 @@ export AWS_PROFILE=$AWS_PROFILE
 export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
 export AWS_PAGER=""
 
+echo "AWS_PROFILE: ${AWS_PROFILE}"
+echo "AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}"
+
 # GET SECRET FOR FONT AWESOME
-FontAwesomeKey=$(aws secretsmanager get-secret-value --region ${AWS_DEFAULT_REGION} --profile ${AWS_PROFILE} --secret-id ${AwsSecretName} --cli-connect-timeout 1 | jq .SecretString | jq -rc | jq -rc '.FontAwesomeKey')
+FontAwesomeKey=$(aws secretsmanager get-secret-value --region ${AWS_DEFAULT_REGION} --profile ${AWS_PROFILE} --secret-id ${AWS_SECRETS} --cli-connect-timeout 1 | jq .SecretString | jq -rc | jq -rc '.FontAwesomeKey')
 sed "s/__FontAwesomeKey__/${FontAwesomeKey}/g" ./CP/.npmrc.template >./CP/.npmrc
 sed "s/__FontAwesomeKey__/${FontAwesomeKey}/g" ./App/.npmrc.template >./App/.npmrc
 

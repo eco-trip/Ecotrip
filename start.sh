@@ -26,6 +26,9 @@ export AWS_PROFILE=$AWS_PROFILE
 export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
 export AWS_PAGER=""
 
+echo "AWS_PROFILE: ${AWS_PROFILE}"
+echo "AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}"
+
 if [ $deamon == "true" ]; then
 	echo "Starting deamon mode..."
 	docker compose up -d
