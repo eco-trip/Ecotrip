@@ -51,3 +51,15 @@ bash start.sh # -d if you want docker compose like a daemon
 
 - Setup your env variables
 - Start docker compose
+
+## Prepare AWS
+
+The following action are required for prepare AWS first time for the project
+
+1. Create Certificate for all subdomains
+2. Create Route53 zone
+3. Create bucket s3 with urls
+4. Create secret with:
+   - FontAwesomeKey
+   - AcmArn (Certificate ARN)
+   - HostedZoneId (Route53 zone id)

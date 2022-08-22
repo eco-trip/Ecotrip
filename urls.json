@@ -1,17 +1,17 @@
 {
   "app": {
     "dev": "localhost",
-    "staging": "staging.ecotrip.meblabs.com",
-    "production": "ecotrip.meblabs.com"
+    "staging": "staging.ecotrip.meblabs.dev",
+    "production": "ecotrip.meblabs.dev"
   },
   "cp": {
     "dev": "localhost:3000",
-    "staging": "cp.staging.ecotrip.meblabs.com",
-    "production": "cp.ecotrip.meblabs.com"
+    "staging": "cp.staging.ecotrip.meblabs.dev",
+    "production": "cp.ecotrip.meblabs.dev"
   },
   "administration": {
     "dev": "localhost:5000",
-    "staging": "administration.staging.ecotrip.meblabs.com",
-    "production": "administration.ecotrip.meblabs.com"
+    "staging": "administration.staging.ecotrip.meblabs.dev",
+    "production": "administration.ecotrip.meblabs.dev"
   }
 }
