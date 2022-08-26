@@ -26,18 +26,17 @@ services:
     stdin_open: true
 
   Administration:
-    image: node:16-alpine
+    build: ./Administration
+    image: administration-node-aws-cli
     container_name: ecotrip-administration
     env_file: ./Administration/.env
     depends_on:
-      - db
+      - ecotrip-administration-db
     ports:
       - "5000:3000"
       - "587:587"
     volumes:
       - ./Administration:/data
-    working_dir: /data
-    command: ./node_modules/.bin/nodemon
 
   AdministrationDB:
     image: amazon/dynamodb-local:1.19.0
@@ -46,7 +45,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./Administration/DB/data:/home/dynamodblocal/data
+      - ./Administration/db/data:/home/dynamodblocal/data
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
 
   AdministrationDB-admin:
     image: aaronshaf/dynamodb-admin:latest
