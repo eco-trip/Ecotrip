@@ -2,6 +2,9 @@
 
 source parameters
 
+# DELETE OLD STACK IF EXIST ON CTRL+C
+trap "echo; echo \"DELETING THE STACK\"; bash destroy.sh -e ${env} -p ${project} -t ${target} -g ${git_username}; exit" INT
+
 # GET SECTRETS
 secrets=$(aws secretsmanager get-secret-value --secret-id ${AWS_SECRETS} --cli-connect-timeout 1)
 AcmArn=$(echo ${secrets} | jq .SecretString | jq -rc . | jq -rc '.AcmArn')
