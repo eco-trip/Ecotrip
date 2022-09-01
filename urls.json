@@ -13,5 +13,10 @@
     "dev": "localhost:5000",
     "staging": "administration.staging.ecotrip.meblabs.dev",
     "production": "administration.ecotrip.meblabs.dev"
+  },
+  "auth": {
+    "dev": "auth-ecotrip-__username__",
+    "staging": "auth.staging.ecotrip.meblabs.dev",
+    "production": "auth.ecotrip.meblabs.dev"
   }
 }
