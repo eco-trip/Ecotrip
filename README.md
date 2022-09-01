@@ -43,14 +43,17 @@ bash setup.sh
 - Install all npm dependencies on Administration, CP and App
 - Optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
 
-#### 2) Start local environment
+#### 2) Deploy aws resurce for developing
 
 ```sh
-bash start.sh # -d if you want docker compose like a daemon
+cd deploy && bash deploy.sh -e dev
 ```
 
-- Setup your env variables
-- Start docker compose
+#### 3) Start docker compose
+
+```sh
+docker compose up #-d if you want daemon
+```
 
 ## Prepare AWS
 
@@ -59,9 +62,11 @@ The following action are required for prepare AWS first time for the project
 1. Create Certificate for all subdomains
 2. Create Route53 zone
 3. Create bucket s3 with urls
-4. Create secret with:
+4. Create SES (Simple email service)
+5. Create secret with:
    - FontAwesomeKey
    - AcmArn (Certificate ARN)
+   - SesArn (SES ARN)
    - HostedZoneId (Route53 zone id)
 
 ### Deploy cognito
