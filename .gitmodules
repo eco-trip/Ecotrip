@@ -7,3 +7,6 @@
 [submodule "App"]
 	path = App
 	url = git@github.com:eco-trip/App.git
+[submodule "Cognito"]
+	path = Cognito
+	url = git@github.com:eco-trip/Cognito.git

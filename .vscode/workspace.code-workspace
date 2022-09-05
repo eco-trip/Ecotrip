@@ -15,6 +15,10 @@
     {
       "name": "App",
       "path": "../App"
+    },
+    {
+      "name": "Cognito",
+      "path": "../Cognito"
     }
   ],
   "settings": {
