@@ -30,7 +30,8 @@
     "files.exclude": {
       "Administration/": true,
       "CP/": true,
-      "App/": true
+      "App/": true,
+      "Cognito/": true
     },
     "[shellscript]": {
       "editor.defaultFormatter": "foxundermoon.shell-format"

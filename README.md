@@ -42,6 +42,7 @@ bash setup.sh
 - Retrieve secret key for FontAwesome npm packages
 - Install all npm dependencies on Administration, CP and App
 - Optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
+- Deploy cognito environment for your github user
 
 #### 2) Deploy aws resurce for developing
 
