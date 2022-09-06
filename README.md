@@ -37,23 +37,21 @@ git submodule foreach git pull
 
 ```sh
 bash setup.sh
+# Optional: you can pass argument to override .env file
+# - "-a" for select your aws profile if you have multiple account configured on aws cli.
+# - "-r" for select aws region
 ```
+
+This script will do:
 
 - Retrieve secret key for FontAwesome npm packages
 - Install all npm dependencies on Administration, CP and App
-- Optional: you can pass argument "-a" for select your aws profile if you have multiple account configured on aws cli. Otherwise the profile used is "default"
 - Deploy cognito environment for your github user
 
-#### 2) Deploy aws resurce for developing
+#### 2) Start docker compose
 
 ```sh
-cd deploy && bash deploy.sh -e dev
-```
-
-#### 3) Start docker compose
-
-```sh
-docker compose up #-d if you want daemon
+docker compose up # -d if you want daemon
 ```
 
 ## Prepare AWS
@@ -62,10 +60,13 @@ The following action are required for prepare AWS first time for the project
 
 1. Create Certificate for all subdomains
 2. Create Route53 zone
-3. Create bucket s3 with urls
+3. Create bucket s3 with urls.json file
 4. Create SES (Simple email service)
 5. Create secret with:
+   - Project (The name of project)
+   - Urls (The S3 url with urls.json file)
    - FontAwesomeKey
    - AcmArn (Certificate ARN)
    - SesArn (SES ARN)
    - HostedZoneId (Route53 zone id)
+6. Set secret ARN into .env file for root repo and all submnodules
