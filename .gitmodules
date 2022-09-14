@@ -10,3 +10,9 @@
 [submodule "Cognito"]
 	path = Cognito
 	url = git@github.com:eco-trip/Cognito.git
+[submodule "GuestAuthorization"]
+	path = GuestAuthorization
+	url = git@github.com:eco-trip/GuestAuthorization.git
+[submodule "DataElaboration"]
+	path = DataElaboration
+	url = git@github.com:eco-trip/DataElaboration.git

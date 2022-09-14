@@ -19,6 +19,14 @@
     {
       "name": "Cognito",
       "path": "../Cognito"
+    },
+    {
+      "name": "GuestAuthorization",
+      "path": "../GuestAuthorization"
+    },
+    {
+      "name": "DataElaboration",
+      "path": "../DataElaboration"
     }
   ],
   "settings": {
@@ -31,7 +39,9 @@
       "Administration/": true,
       "CP/": true,
       "App/": true,
-      "Cognito/": true
+      "Cognito/": true,
+      "GuestAuthorization/": true,
+      "DataElaboration/": true
     },
     "[shellscript]": {
       "editor.defaultFormatter": "foxundermoon.shell-format"
