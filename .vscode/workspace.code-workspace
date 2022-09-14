@@ -30,7 +30,13 @@
     }
   ],
   "settings": {
-    "eslint.workingDirectories": ["./Administration", "./CP", "./App"],
+    "eslint.workingDirectories": [
+      "./Administration",
+      "./CP",
+      "./App",
+      "./GuestAuthorization",
+      "./DataElaboration"
+    ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
