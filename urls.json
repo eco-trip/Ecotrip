@@ -15,8 +15,8 @@
     "production": "administration.ecotrip.meblabs.dev"
   },
   "auth": {
-    "dev": "auth-ecotrip-__username__",
-    "staging": "auth.staging.ecotrip.meblabs.dev",
-    "production": "auth.ecotrip.meblabs.dev"
+    "dev": "dev-__username__-ecotrip-meblabs",
+    "staging": "staging-ecotrip-meblabs",
+    "production": "ecotrip-meblabs"
   }
 }

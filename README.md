@@ -70,3 +70,16 @@ The following action are required for prepare AWS first time for the project
    - SesArn (SES ARN)
    - HostedZoneId (Route53 zone id)
 6. Set secret ARN into .env file for root repo and all submnodules
+
+#### Stack dependencies
+
+To deploy the entire ecosystem of microservices, must follow the following order:
+
+1. Cognito and GuestAuthorization
+2. Others...
+
+Following the dependencies:
+
+- App requiere Cognito
+- CP requiere Cognito
+- Administration require Cognito and GuestAuthorization
