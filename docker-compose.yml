@@ -29,7 +29,7 @@ services:
     build: ./Administration
     image: administration-node-aws-cli
     container_name: ecotrip-administration
-    env_file: ./Administration/.env
+    env_file: ./Administration/.env.development
     depends_on:
       - AdministrationDB
     ports:
