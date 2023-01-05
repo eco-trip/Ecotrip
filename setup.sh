@@ -34,6 +34,9 @@ echo "AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}"
 
 # GET SECTRETS
 Secrets=$(aws secretsmanager get-secret-value --region ${AWS_DEFAULT_REGION} --profile ${AWS_PROFILE} --secret-id ${AWS_SECRETS} --cli-connect-timeout 1)
+Project=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.Project')
+AWS_ACCESS_KEY_ID=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.AWS_SECRET_ACCESS_KEY')
 
 # SET FONT AWESOME KEY
 echo "-> SET FONT AWESOME KEY"
@@ -44,6 +47,14 @@ sed "s/__FontAwesomeKey__/${FontAwesomeKey}/g" ./App/.npmrc.template >./App/.npm
 echo "-> [Administration] npm install"
 cd ./Administration
 npm ci
+
+echo "-> [Administration] prepare env file"
+cp .env .env.development
+echo "" >>.env.development
+echo "Project=${Project}" >>.env.development
+echo "" >>.env.development
+echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >>.env.development
+echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >>.env.development
 
 echo "-> [Cp] npm install"
 cd ../CP
