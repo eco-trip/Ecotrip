@@ -37,6 +37,7 @@ Secrets=$(aws secretsmanager get-secret-value --region ${AWS_DEFAULT_REGION} --p
 Project=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.Project')
 AWS_ACCESS_KEY_ID=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.AWS_SECRET_ACCESS_KEY')
+GUEST_JWT_SECRET=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.GUEST_JWT_SECRET')
 
 # SET FONT AWESOME KEY
 echo "-> SET FONT AWESOME KEY"
@@ -55,6 +56,8 @@ echo "Project=${Project}" >>.env.development
 echo "" >>.env.development
 echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >>.env.development
 echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >>.env.development
+echo "" >>.env.development
+echo "GUEST_JWT_SECRET=${GUEST_JWT_SECRET}" >>.env.development
 
 echo "-> [Cp] npm install"
 cd ../CP
@@ -63,6 +66,9 @@ npm ci
 echo "-> [App] npm install"
 cd ../App
 npm ci
+
+echo "-> [App] prepare env file"
+echo "REACT_APP_GUEST_JWT_SECRET=${GUEST_JWT_SECRET}" >>.env.local
 
 # COGNITO AWS FOR GITHUB USER
 echo "-> [Cognito] AWS environment setup"
