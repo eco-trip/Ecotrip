@@ -18,5 +18,10 @@
     "dev": "dev-__username__-ecotrip-meblabs",
     "staging": "staging-ecotrip-meblabs",
     "production": "ecotrip-meblabs"
+  },
+  "data-elaboration": {
+    "dev": "de-__username__.dev.ecotrip.meblabs.dev",
+    "staging": "de.staging.ecotrip.meblabs.dev",
+    "production": "de.ecotrip.meblabs.dev"
   }
 }
