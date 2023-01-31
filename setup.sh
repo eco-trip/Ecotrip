@@ -32,6 +32,8 @@ export AWS_PAGER=""
 echo "AWS_PROFILE: ${AWS_PROFILE}"
 echo "AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}"
 
+GitUsername=$(echo $(git config user.name) | tr '[:upper:]' '[:lower:]')
+
 # GET SECTRETS
 Secrets=$(aws secretsmanager get-secret-value --region ${AWS_DEFAULT_REGION} --profile ${AWS_PROFILE} --secret-id ${AWS_SECRETS} --cli-connect-timeout 1)
 Project=$(echo ${Secrets} | jq .SecretString | jq -rc . | jq -rc '.Project')
@@ -68,7 +70,10 @@ cd ../App
 npm ci
 
 echo "-> [App] prepare env file"
-echo "REACT_APP_GUEST_JWT_SECRET=${GUEST_JWT_SECRET}" >>.env.local
+echo "REACT_APP_GUEST_JWT_SECRET=${GUEST_JWT_SECRET}" >.env.local
+DataElaborationUrl=$(cat ../urls.json | jq '."data-elaboration".dev' | tr -d '"')
+DataElaborationUrl=$(echo ${DataElaborationUrl/__username__/$GitUsername})
+echo "REACT_APP_DE_ENDPOINT=https://${DataElaborationUrl}" >>.env.local
 
 # COGNITO AWS FOR GITHUB USER
 echo "-> [Cognito] AWS environment setup"
